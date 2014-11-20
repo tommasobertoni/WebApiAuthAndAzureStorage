@@ -1,0 +1,103 @@
+﻿@{
+    ViewBag.Title = "Gestione Attività";
+}
+
+<h2 style="float:left">Gestione Attività</h2>
+<h2 style="float: left"><span id="userNameDisplay"></span></h2>
+<br style="clear: both" />
+
+<style>
+    .glyphicon-remove {
+        cursor: pointer;
+    }
+
+    #userNameDisplay {
+        color: #808080;
+        padding-left: 30px;
+        font-size: 24px;
+    }
+</style>
+
+<div id="authSection">
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Registrazione</h3>
+            <br />
+            <form id="registrationForm" role="form">
+                <div class="form-group">
+                    <label for="Email">Email: </label>
+                    <input type="email" name="Email" id="Email" class="form-control" placeholder="email" required autofocus />
+                    <br />
+                    <label for="Password">Password: </label>
+                    <input type="password" name="Password" id="Password" class="form-control" placeholder="password" required />
+                    <br />
+                    <label for="ConfirmPassword">Confirm password: </label>
+                    <input type="password" name="ConfirmPassword" id="ConfirmPassword" class="form-control" placeholder="conferma password" required />
+                    <br />
+                    <input type="button" class="btn btn-primary" value="Registra" id="btnRegister" />
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <h3>Login</h3>
+            <br />
+            <form id="loginForm" role="form">
+                <div class="form-group">
+                    <label for="Email">Email: </label>
+                    <input type="email" name="Email" id="Email" class="form-control" placeholder="email" required />
+                    <br />
+                    <label for="Password">Password: </label>
+                    <input type="password" name="Password" id="Password" class="form-control" placeholder="password" required />
+                    <br />
+                    <input type="button" class="btn btn-primary" value="Login" id="btnLogin" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="dataSection">
+    <div class="col-md-3" style="border-right: 1px solid #ccc">
+        <div class="form-group">
+            <h3>Aggiungi Attività</h3>
+            <br />
+            <label for="Title">Titolo: </label>
+            <input type="text" name="Title" id="Title" class="form-control" placeholder="titolo" required />
+            <br />
+            <label for="Desc">Descrizione: </label>
+            <input type="text" name="Desc" id="Desc" class="form-control" placeholder="breve descrizione" />
+            <br />
+            <label for="Duration">Durata: </label>
+            <input type="number" name="Duration" id="Duration" class="form-control" placeholder="durata in minuti" min="0" />
+            <br />
+            <label for="CategoryId">Categoria: </label>
+            <input type="number" name="CategoryId" id="CategoryId" class="form-control" placeholder="categoria" min="0" max="3" />
+            <br />
+            <input type="button" class="btn btn-primary" value="Aggiungi" id="btnAddActivity" />
+        </div>
+        <br />
+    </div>
+    <div class="col-md-9">
+        <h3>Elenco Attività</h3>
+        <br />
+        <input type="button" class="btn btn-block" value="Aggiorna Tabella - Automatico" id="btnGetAllActivities" />
+        <br /><br />
+        <table class="table" id="tableDisplay">
+            <thead>
+                <tr>
+                    <th>Titolo</th>
+                    <th>Descrizione</th>
+                    <th>Durata</th>
+                    <th>Creazione</th>
+                    <th>Categoria</th>
+                    <th>Elimina</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <br style="clear: both" />
+</div>
+
+@section scripts {
+    <script src="~/Scripts/activityScript.js"></script>
+}
